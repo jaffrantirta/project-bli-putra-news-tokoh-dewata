@@ -14,14 +14,16 @@ export default function HeaderSection() {
             <div className='flex items-center justify-center'>
                 <h1 className='text-center font-bold text-white text-xl'>{moment().format('LL')}</h1>
             </div>
-            <div className='flex justify-center'>
-                <Link to={'/'} className='text-primary font-bold text-3xl'>
-                    <img src={ImgLogo} className='h-32' />
-                </Link>
+            <div>
+                <div className='flex justify-center'>
+                    <Link to={'/'} className='text-primary font-bold text-3xl'>
+                        <img src={ImgLogo} className='h-48' />
+                    </Link>
+                </div>
+                {/* <h1 className='text-center text-5xl font-bold text-white'>{APP_NAME}</h1> */}
+                <h1 className='text-center text-xl font-bold text-white'>{TAG_LINE}</h1>
             </div>
-            {/* <h1 className='text-center text-5xl font-bold text-white'>{APP_NAME}</h1> */}
-            {/* <h1 className='text-center text-xl font-bold text-white'>{TAG_LINE}</h1> */}
-            <div className='flex justify-center'>
+            <div className='grid justify-center content-center'>
                 <form onSubmit={e => {
                     e.preventDefault()
                     let formData = new FormData(e.target)
