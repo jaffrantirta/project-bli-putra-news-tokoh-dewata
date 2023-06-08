@@ -67,7 +67,7 @@ export default function NewsRead() {
             <HeaderSection />
             <hr></hr>
             <NavbarSection />
-            <div className='p-10 grid grid-cols-q md:grid-cols-4 gap-10'>
+            <div className='p-10 grid grid-cols-1 md:grid-cols-4 gap-10'>
                 <div className='md:col-span-3'>
                     <p className='font-bold text-xl md:text-4xl xl:text-6xl'>{newsDetail.title}</p>
                     <div className='flex gap-5 my-3 font-bold'>
@@ -82,10 +82,19 @@ export default function NewsRead() {
                     </div>
                     <img alt={newsDetail.title} src={newsDetail.image_public_url} className='my-5 w-full aspect-video object-cover object-center' />
                     <div dangerouslySetInnerHTML={{ __html: newsDetail.content }} />
-                    <div className='flex items-center'>
+                    <div className='flex mt-5 flex-wrap gap-5 items-center'>
                         <p className='text-lg font-bold mr-5'>TAGS: </p>
-                        {tags.map((item, index) => <Link to={`/search?tag=${item}`} key={index} className='p-3 bg-slate-400 rounded-full shadow-md hover:bg-slate-600 w-fit cursor-pointer mx-2 hover:text-slate-100'>{item}</Link>)}
+                        {tags.map((item, index) => (
+                            <Link
+                                to={`/search?tag=${item}`}
+                                key={index}
+                                className='p-2 bg-slate-400 rounded-xl shadow-md hover:bg-slate-600 w-fit cursor-pointer hover:text-slate-100'
+                            >
+                                {item}
+                            </Link>
+                        ))}
                     </div>
+
                 </div>
                 <div className='flex flex-col gap-5 overflow-y-auto'>
                     <p className='text-2xl text-red-600 font-bold underline'>BERITA TERPOPULER</p>
