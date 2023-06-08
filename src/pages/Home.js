@@ -8,6 +8,7 @@ export default function Home() {
             <HeaderSection />
             <hr></hr>
             <NavbarSection />
+            <hr></hr>
             <HeroSection />
             <NewsListSection />
             <CategorySection />

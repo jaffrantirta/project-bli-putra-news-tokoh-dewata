@@ -8,6 +8,7 @@ import { selectSingleById } from '../context/NewsContext'
 import { HeaderSection, NavbarSection } from '../sections'
 import { ERROR_MESSAGE } from '../utils/Constant'
 import Loader from '../utils/Loader'
+import convertText from '../utils/ConvertText'
 
 export default function NewsRead() {
     const { search } = useLocation()
@@ -45,6 +46,22 @@ export default function NewsRead() {
         if (queryParams.has('id')) hit()
     }, [search])
 
+    const shareOnFacebook = (id, title) => {
+        let shareUrl = `https://ariessujati.com/read?id=${id}&news=${convertText(title)}`;
+        window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(shareUrl), '_blank');
+    }
+    const shareOnTwitter = (id, title) => {
+        let tweetUrl = `https://ariessujati.com/read?id=${id}&news=${convertText(title)}`;
+        let tweetText = title;
+        window.open('https://twitter.com/intent/tweet?text=' + encodeURIComponent(tweetText) + '&url=' + encodeURIComponent(tweetUrl), '_blank');
+    }
+    const sharedOnWhatsApp = (id, title) => {
+        let shareUrl = `https://ariessujati.com/read?id=${id}&news=${convertText(title)}`;
+        let messageText = title + shareUrl;
+        let whatsappUrl = 'https://api.whatsapp.com/send?text=' + encodeURIComponent(messageText)
+        window.open(whatsappUrl, '_blank');
+    }
+
     return (loading ? <Loader loadText={'Memuat...'} /> :
         <div>
             <HeaderSection />
@@ -52,16 +69,16 @@ export default function NewsRead() {
             <NavbarSection />
             <div className='p-10 grid grid-cols-q md:grid-cols-4 gap-10'>
                 <div className='md:col-span-3'>
-                    <p className='font-bold text-6xl'>{newsDetail.title}</p>
+                    <p className='font-bold text-xl md:text-4xl xl:text-6xl'>{newsDetail.title}</p>
                     <div className='flex gap-5 my-3 font-bold'>
                         <p>{moment(newsDetail.created_at).format('ll')}</p>
                         <p>{moment(newsDetail.created_at).format('HH:mm')}</p>
                         <p>{newsDetail.categories.name}</p>
                     </div>
                     <div className='hidden md:grid grid-cols-1 md:grid-cols-3 gap-5'>
-                        <button className='bg-blue-900 text-white p-3 font-bold'>FACEBOOK</button>
-                        <button className='bg-sky-400 text-white p-3 font-bold'>TWITTER</button>
-                        <button className='bg-green-500 text-white p-3 font-bold'>WHATSAPP</button>
+                        <button onClick={() => shareOnFacebook(newsDetail.id, newsDetail.title)} className='bg-blue-900 text-white p-3 font-bold'>FACEBOOK</button>
+                        <button onClick={() => shareOnTwitter(newsDetail.id, newsDetail.title)} className='bg-sky-400 text-white p-3 font-bold'>TWITTER</button>
+                        <button onClick={() => sharedOnWhatsApp(newsDetail.id, newsDetail.title)} className='bg-green-500 text-white p-3 font-bold'>WHATSAPP</button>
                     </div>
                     <img alt={newsDetail.title} src={newsDetail.image_public_url} className='my-5 w-full aspect-video object-cover object-center' />
                     <div dangerouslySetInnerHTML={{ __html: newsDetail.content }} />

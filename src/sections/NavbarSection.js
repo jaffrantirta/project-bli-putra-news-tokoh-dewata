@@ -44,14 +44,16 @@ export default function NavbarSection() {
             </div>
             <div className='hidden md:flex justify-evenly p-2'>
                 <Link to={'/'} className='text-primary font-bold text-3xl'>{APP_NAME}</Link>
-                {categoriesList.map((item, index) => {
-                    return (
-                        <div className='hover:bg-primary hover:text-slate-100 p-3 transition-all duration-300 rounded-full' key={index}>
-                            <Link to={`/search?id=${item.id}&name=${item.name}`} className=''>{item.name}</Link>
-                        </div>
+                <div className='flex gap-5'>
+                    {categoriesList.map((item, index) => {
+                        return (
+                            <div className='hover:bg-primary font-bold hover:text-slate-100 p-3 transition-all duration-300 rounded-full' key={index}>
+                                <Link to={`/search?id=${item.id}&name=${item.name}`} className=''>{item.name}</Link>
+                            </div>
 
-                    )
-                })}
+                        )
+                    })}
+                </div>
             </div>
         </div>
     )

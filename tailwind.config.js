@@ -12,7 +12,7 @@ module.exports = {
         'third': ['Dancing Script', 'cursive'],
       },
       colors: {
-        primary: '#cf1822',
+        primary: '#de0705',
         accentColor: '#fadbc9',
         secondary: '#fdf0da',
         third: '#e9b250'

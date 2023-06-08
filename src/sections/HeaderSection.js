@@ -1,9 +1,10 @@
 import moment from 'moment'
 import React from 'react'
 import 'moment/locale/id';
-import { APP_NAME } from '../utils/Constant';
+import { APP_NAME, TAG_LINE } from '../utils/Constant';
 import { InputComponent } from '../components';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { ImgLogo } from '../assets';
 moment.locale('id')
 
 export default function HeaderSection() {
@@ -13,9 +14,13 @@ export default function HeaderSection() {
             <div className='flex items-center justify-center'>
                 <h1 className='text-center font-bold text-white text-xl'>{moment().format('LL')}</h1>
             </div>
-            <div>
-                <h1 className='text-center text-5xl font-bold text-white'>{APP_NAME}</h1>
+            <div className='flex justify-center'>
+                <Link to={'/'} className='text-primary font-bold text-3xl'>
+                    <img src={ImgLogo} className='h-32' />
+                </Link>
             </div>
+            {/* <h1 className='text-center text-5xl font-bold text-white'>{APP_NAME}</h1> */}
+            {/* <h1 className='text-center text-xl font-bold text-white'>{TAG_LINE}</h1> */}
             <div className='flex justify-center'>
                 <form onSubmit={e => {
                     e.preventDefault()
