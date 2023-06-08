@@ -57,7 +57,7 @@ export default function NewsRead() {
     }
     const sharedOnWhatsApp = (id, title) => {
         let shareUrl = `https://ariessujati.com/read?id=${id}&news=${convertText(title)}`;
-        let messageText = title + shareUrl;
+        let messageText = title + ' ' + shareUrl;
         let whatsappUrl = 'https://api.whatsapp.com/send?text=' + encodeURIComponent(messageText)
         window.open(whatsappUrl, '_blank');
     }
