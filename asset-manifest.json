@@ -1,17 +1,17 @@
 {
   "files": {
     "main.css": "/project-news-bli-putra-madekasta/static/css/main.0f420fda.css",
-    "main.js": "/project-news-bli-putra-madekasta/static/js/main.60232ca0.js",
+    "main.js": "/project-news-bli-putra-madekasta/static/js/main.ab13463e.js",
     "static/js/787.66a4299e.chunk.js": "/project-news-bli-putra-madekasta/static/js/787.66a4299e.chunk.js",
     "static/media/logo.png": "/project-news-bli-putra-madekasta/static/media/logo.e5a104aa68f4cf5f4d33.png",
     "static/media/not_found.svg": "/project-news-bli-putra-madekasta/static/media/not_found.98e885e9e8f13041ef313d33f89de7ac.svg",
     "index.html": "/project-news-bli-putra-madekasta/index.html",
     "main.0f420fda.css.map": "/project-news-bli-putra-madekasta/static/css/main.0f420fda.css.map",
-    "main.60232ca0.js.map": "/project-news-bli-putra-madekasta/static/js/main.60232ca0.js.map",
+    "main.ab13463e.js.map": "/project-news-bli-putra-madekasta/static/js/main.ab13463e.js.map",
     "787.66a4299e.chunk.js.map": "/project-news-bli-putra-madekasta/static/js/787.66a4299e.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.0f420fda.css",
-    "static/js/main.60232ca0.js"
+    "static/js/main.ab13463e.js"
   ]
 }
