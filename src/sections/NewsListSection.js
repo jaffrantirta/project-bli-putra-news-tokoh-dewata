@@ -67,7 +67,7 @@ export default function NewsListSection() {
           <NewsListComponent
             key={index}
             id={item.id}
-            classNameTitle={"md:text-2xl"}
+            classNameTitle={"md:text-xl"}
             title={item.title}
             img={item.image_public_url}
             date={moment(item.created_at).format("ll")}

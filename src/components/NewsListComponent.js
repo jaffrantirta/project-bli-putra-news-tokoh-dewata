@@ -16,19 +16,21 @@ export default function NewsListComponent({
   return (
     <Link
       to={`/read?id=${id}&news=${convertText(title)}`}
-      className={`flex gap-3 cursor-pointer ${className}`}
+      className={`grid grid-cols-2 gap-3 cursor-pointer ${className}`}
     >
       {withImage ? (
         <img
           src={img}
           alt={title}
-          className="bg-primary border flex-1 object-cover object-center aspect-video h-fit"
+          className="bg-primary border object-cover object-center aspect-square md:aspect-video"
         />
       ) : (
         <></>
       )}
-      <div className="flex-1">
-        <p className={`hover:text-primary font-bold ${classNameTitle}`}>
+      <div className="">
+        <p
+          className={`hover:text-primary text-sm md:text-md font-bold ${classNameTitle}`}
+        >
           {title}
         </p>
         <div className="grid md:flex md:flex-col justify-between">
