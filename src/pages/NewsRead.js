@@ -6,7 +6,7 @@ import { NewsListComponent } from "../components";
 import { showFrom, updateOrCreate } from "../context/HitContext";
 import { selectSingleById } from "../context/NewsContext";
 import { HeaderSection, NavbarSection } from "../sections";
-import { ERROR_MESSAGE } from "../utils/Constant";
+import { BASE_URL, ERROR_MESSAGE } from "../utils/Constant";
 import Loader from "../utils/Loader";
 import convertText from "../utils/ConvertText";
 
@@ -50,9 +50,7 @@ export default function NewsRead() {
   }, [search]);
 
   const shareOnFacebook = (id, title) => {
-    let shareUrl = `https://ariessujati.com/read?id=${id}&news=${convertText(
-      title
-    )}`;
+    let shareUrl = `${BASE_URL}read?id=${id}&news=${convertText(title)}`;
     window.open(
       "https://www.facebook.com/sharer/sharer.php?u=" +
         encodeURIComponent(shareUrl),
@@ -60,9 +58,7 @@ export default function NewsRead() {
     );
   };
   const shareOnTwitter = (id, title) => {
-    let tweetUrl = `https://ariessujati.com/read?id=${id}&news=${convertText(
-      title
-    )}`;
+    let tweetUrl = `${BASE_URL}read?id=${id}&news=${convertText(title)}`;
     let tweetText = title;
     window.open(
       "https://twitter.com/intent/tweet?text=" +
@@ -73,9 +69,7 @@ export default function NewsRead() {
     );
   };
   const sharedOnWhatsApp = (id, title) => {
-    let shareUrl = `https://ariessujati.com/read?id=${id}&news=${convertText(
-      title
-    )}`;
+    let shareUrl = `${BASE_URL}read?id=${id}&news=${convertText(title)}`;
     let messageText = title + " " + shareUrl;
     let whatsappUrl =
       "https://api.whatsapp.com/send?text=" + encodeURIComponent(messageText);

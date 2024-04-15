@@ -13,7 +13,7 @@ export default function NewsListSection() {
   useEffect(() => {
     async function getNewsLeft() {
       const { data, error } = await show()
-        .eq("category_id", 17)
+        .eq("category_id", 1)
         .select("*, categories(*)");
       if (error) {
         Swal.fire(ERROR_MESSAGE, error.message, "error");
@@ -47,9 +47,7 @@ export default function NewsListSection() {
   return (
     <div className="grid grid-cols-1 md:grid-cols-4 gap-5 p-10 md:px-44 h-fit md:h-screen overflow-hidden">
       <div className="flex flex-col gap-5 overflow-y-auto">
-        <p className="text-2xl text-primary font-bold underline">
-          BERITA UTAMA
-        </p>
+        <p className="text-2xl text-primary font-bold underline">ABOUT</p>
         {newsListLeft.map((item, index) => (
           <NewsListComponent
             key={index}
