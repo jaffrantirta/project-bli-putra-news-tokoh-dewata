@@ -17,7 +17,7 @@ export default function HeroImageComponent({ img, category, title, date, id }) {
         <p className="bg-primary w-fit p-2 text-sm rounded-full text-white font-bold">
           {category}
         </p>
-        <p className="text-md md:text-3xl font-bold line-clamp-2 hover:text-primary">
+        <p className="text-sm font-bold line-clamp-2 hover:text-primary">
           {title}
         </p>
         <p className="text-sm">{date}</p>

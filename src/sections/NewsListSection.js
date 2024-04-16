@@ -45,27 +45,34 @@ export default function NewsListSection() {
     getNewsRight();
   }, []);
   return (
-    <div className="grid grid-cols-1 md:grid-cols-4 gap-5 p-10 md:px-44 h-fit md:h-screen overflow-hidden">
-      <div className="flex flex-col gap-5 overflow-y-auto">
-        <p className="text-2xl text-primary font-bold underline">ABOUT</p>
+    <div className="grid grid-cols-1 md:grid-cols-4 gap-5 p-10 h-fit md:h-screen w-screen">
+      {/* left */}
+      <div className="hidden md:flex flex-col gap-3 overflow-y-auto w-full items-center">
+        <div className="border w-full border-b-primary">
+          <p className="text-md text-center text-primary font-bold">Terkini</p>
+        </div>
         {newsListLeft.map((item, index) => (
-          <NewsListComponent
-            key={index}
-            id={item.id}
-            withImage={false}
-            classNameTitle={"text-blue-900"}
-            title={item.title}
-            date={moment(item.created_at).format("ll")}
-            category={item.categories.name}
-          />
+          <>
+            <NewsListComponent
+              key={index}
+              id={item.id}
+              withImage={false}
+              classNameTitle={"text-blue-900"}
+              title={item.title}
+              date={moment(item.created_at).format("ll")}
+              category={item.categories.name}
+            />
+            <div className="border-b border w-full border-slate-100"></div>
+          </>
         ))}
       </div>
+
+      {/* middle */}
       <div className="col-span-2 flex flex-col gap-5 overflow-y-auto">
         {newsListMiddle.map((item, index) => (
           <NewsListComponent
             key={index}
             id={item.id}
-            classNameTitle={"md:text-xl"}
             title={item.title}
             img={item.image_public_url}
             date={moment(item.created_at).format("ll")}
@@ -73,10 +80,14 @@ export default function NewsListSection() {
           />
         ))}
       </div>
-      <div className="flex flex-col gap-5 overflow-y-auto">
-        <p className="text-2xl text-primary font-bold underline">
-          BERITA TERPOPULER
-        </p>
+
+      {/* right */}
+      <div className="flex bg-slate-200 p-3 rounded-3xl shadow-lg flex-col gap-5 overflow-y-auto">
+        <div className="border border-b border-b-primary">
+          <p className="text-md text-center text-primary font-bold">
+            Berita Terpopuler
+          </p>
+        </div>
         {newsListRight.map((item, index) => (
           <NewsListComponent
             id={item.news.id}
@@ -84,7 +95,7 @@ export default function NewsListSection() {
             title={item.news.title}
             img={item.news.image_public_url}
             date={moment(item.news.created_at).format("ll")}
-            category={item.news.categories.name}
+            withCategory={false}
           />
         ))}
       </div>
