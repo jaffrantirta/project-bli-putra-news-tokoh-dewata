@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { ButtonComponent, InputComponent } from "../components";
-import ReactQuill from "react-quill";
+import MDEditor from "@uiw/react-md-editor";
 import "react-quill/dist/quill.snow.css";
 import Swal from "sweetalert2";
 import Loader from "../utils/Loader";
@@ -10,8 +10,6 @@ import { remove, storage, upload } from "../context/StorageContext";
 import { v4 as uuidv4 } from "uuid";
 import { useLocation, useNavigate } from "react-router-dom";
 import { ERROR_MESSAGE } from "../utils/Constant";
-import { CKEditor } from "@ckeditor/ckeditor5-react";
-import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
 
 export default function CreateNews() {
   const navigate = useNavigate();
@@ -189,18 +187,10 @@ export default function CreateNews() {
           name={"title"}
           placeholder="Judul"
         />
-        {/* <ReactQuill
-          className="h-64 mt-10"
-          value={content}
-          onChange={onChange}
-        /> */}
+        <div data-color-mode="light">
+          <MDEditor value={content} onChange={onChange} />
+        </div>
 
-        <CKEditor
-          editor={ClassicEditor}
-          // config={config}
-          data={content}
-          onChange={(event, editor) => onChange(editor.getData())}
-        />
         <InputComponent
           className={"mt-20"}
           type={"file"}

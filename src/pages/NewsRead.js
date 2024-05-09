@@ -9,6 +9,7 @@ import { HeaderSection, NavbarSection } from "../sections";
 import { BASE_URL, ERROR_MESSAGE } from "../utils/Constant";
 import Loader from "../utils/Loader";
 import convertText from "../utils/ConvertText";
+import MDEditor from "@uiw/react-md-editor";
 
 export default function NewsRead() {
   const { search } = useLocation();
@@ -118,7 +119,14 @@ export default function NewsRead() {
             src={newsDetail.image_public_url}
             className="my-5 w-full aspect-video object-cover object-center"
           />
-          <div dangerouslySetInnerHTML={{ __html: newsDetail.content }} />
+          {/* <div dangerouslySetInnerHTML={{ __html: newsDetail.content }} /> */}
+          <div data-color-mode="light">
+            <MDEditor.Markdown
+              source={newsDetail.content}
+              // style={{ whiteSpace: "pre-wrap" }}
+            />
+          </div>
+
           <div className="flex mt-5 flex-wrap gap-5 items-center">
             <p className="text-lg font-bold mr-5">TAGS: </p>
             {tags.map((item, index) => (
