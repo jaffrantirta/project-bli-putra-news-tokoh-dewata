@@ -8,3 +8,4 @@ export const IS_LOGIN =
   localStorage.getItem("access_token") !== null ? true : false;
 export const CACHE_EXPIRATION_TIME = 60000;
 export const BASE_URL = "https://tokohdewata.com/";
+export const PROJECT_NAME = "tokohdewata.com";
