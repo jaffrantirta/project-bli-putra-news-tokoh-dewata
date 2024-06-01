@@ -10,6 +10,7 @@ import { BASE_URL, ERROR_MESSAGE } from "../utils/Constant";
 import Loader from "../utils/Loader";
 import convertText from "../utils/ConvertText";
 import MDEditor from "@uiw/react-md-editor";
+import { Analytics } from "@vercel/analytics/react";
 
 export default function NewsRead() {
   const { search } = useLocation();
@@ -81,6 +82,7 @@ export default function NewsRead() {
     <Loader loadText={"Memuat..."} />
   ) : (
     <div>
+      <Analytics />
       <HeaderSection />
       <hr></hr>
       <NavbarSection />
