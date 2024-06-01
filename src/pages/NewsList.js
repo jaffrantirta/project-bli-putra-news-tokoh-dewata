@@ -9,6 +9,7 @@ import { show, showByTag, showLike } from "../context/NewsContext";
 import { HeaderSection, NavbarSection } from "../sections";
 import { ERROR_MESSAGE } from "../utils/Constant";
 import Loader from "../utils/Loader";
+import { Analytics } from "@vercel/analytics/react";
 
 export default function NewsList() {
   const [newsListRight, setNewsListRight] = useState([]);
@@ -70,6 +71,7 @@ export default function NewsList() {
 
   return (
     <div>
+      <Analytics />
       <HeaderSection />
       <hr></hr>
       <NavbarSection />
