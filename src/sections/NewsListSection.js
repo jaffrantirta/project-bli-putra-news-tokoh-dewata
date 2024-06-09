@@ -13,7 +13,7 @@ export default function NewsListSection() {
   useEffect(() => {
     async function getNewsLeft() {
       const { data, error } = await show()
-        .eq("category_id", 1)
+        // .eq("category_id", 1)
         .select("*, categories(*)");
       if (error) {
         Swal.fire(ERROR_MESSAGE, error.message, "error");
