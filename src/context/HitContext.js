@@ -24,14 +24,14 @@ export const updateOrCreate = async (newsId) =>
         const hitCount = hits[0].hit + 1;
         supabase
           .from("hits")
-          .update({ hit: hitCount })
+          .update({ hit: hitCount, project: PROJECT_NAME })
           .eq("id", hitId)
           .then(() => console.info("hit updated"))
           .catch((error) => console.error(error));
       } else {
         supabase
           .from("hits")
-          .insert({ news_id: newsId, hit: 1 })
+          .insert({ news_id: newsId, hit: 1, project: PROJECT_NAME })
           .then(() => console.info("hit created"))
           .catch((error) => console.error(error));
       }
